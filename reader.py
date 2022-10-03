@@ -30,7 +30,7 @@ def read(file):
             data.append(0)
             data[time] = obj
         result.data = data
-        result.name = file.split("data")[1].replace("_"," ").replace(".csv","").replace("/","").replace("\\","")
+        result.name = file.split("data")[1].replace("_"," ").replace(".csv","").replace("/","").replace("\\","").replace("m ", "")
     return result
 
 def find(name):
