@@ -1,4 +1,5 @@
 import csv
+import glob
 from types import SimpleNamespace
 
 def read(file):
@@ -24,8 +25,8 @@ def read(file):
             data[time] = obj
     return data
 
-cck1_05 = read("C:/projects/tdde48multicastiperf/data/m_cck1_close_0.5.csv")
+def find(name):
+    return glob.glob("./data/"+name+"*.csv")
 
-cck1_1 = read("C:/projects/tdde48multicastiperf/data/m_cck1_close_1.csv")
 
 
