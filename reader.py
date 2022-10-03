@@ -30,6 +30,7 @@ def read(file):
             data.append(0)
             data[time] = obj
         result.data = data
+        result.bandwidth = float(file.split("_")[-1].replace(".csv",""))
         result.name = file.split("data")[1].replace("_"," ").replace(".csv","").replace("/","").replace("\\","").replace("m ", "")
     return result
 

@@ -37,7 +37,7 @@ def generate_graph_throughput(datas):
             if i > len(datas[j].data):
                 break
             y.append(datas[j].data[i].bytes)
-        plt.plot(x, y, marker='o', label=datas[j].name)
+        plt.plot(x, y, marker='o', label=datas[j].name, color=color(datas[j].bandwidth))
             
     # plotting the points 
     
@@ -62,5 +62,28 @@ def generate_graph_throughput(datas):
     # function to show the plot
     plt.show()
 
+def color(bandwidth):
+    if(bandwidth==0.5):
+        return "b"
+    if(bandwidth==1):
+        return "g"
+    if(bandwidth==3):
+        return "r"
+    if(bandwidth==6):
+        return "c"
+    if(bandwidth==9):
+        return "m"
+    if(bandwidth==18):
+        return "y"
+    if(bandwidth==27):
+        return "k"
+    if(bandwidth==54):
+        return "b"
+    if(bandwidth==108):
+        return "orange"
+    if(bandwidth==216):
+        return "g"
+    if(bandwidth==450):
+        return "r"
 
 
