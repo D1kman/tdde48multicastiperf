@@ -13,7 +13,7 @@ def read(file):
             if(started and time == 0):
                 break
             if(time == 0): started = True
-            bytes=int(row[7])/1024*8
+            bytes=int(row[7])/1024/1024*8
             lostpacket=int(row[10])
             packets=int(row[11])
             jitter=float(row[9])
