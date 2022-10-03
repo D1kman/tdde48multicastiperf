@@ -8,9 +8,9 @@ def generate_graph_loss(datas):
     for j in range(0, len(datas)):
         y= []
         for i in x:
-            if i > len(datas[j]):
+            if i > len(datas[j].data):
                 break
-            y.append(datas[j][i].bytes)
+            y.append(datas[j].data[i].bytes)
         plt.plot(x, y, marker='o')
             
     # plotting the points 
@@ -34,10 +34,10 @@ def generate_graph_throughput(datas):
     for j in range(0, len(datas)):
         y= []
         for i in x:
-            if i > len(datas[j]):
+            if i > len(datas[j].data):
                 break
-            y.append(datas[j][i].bytes)
-        plt.plot(x, y, marker='o', label="hello world")
+            y.append(datas[j].data[i].bytes)
+        plt.plot(x, y, marker='o', label=datas[j].name)
             
     # plotting the points 
     

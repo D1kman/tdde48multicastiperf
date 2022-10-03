@@ -6,6 +6,7 @@ from types import SimpleNamespace
 def read(file):
     with open(file, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        result = SimpleNamespace()
         data = []
         started = False
         for row in reader:
@@ -28,7 +29,9 @@ def read(file):
             obj.outoforder = outoforder
             data.append(0)
             data[time] = obj
-    return data
+        result.data = data
+        result.name = file
+    return result
 
 def find(name):
     return glob.glob("./data/"+name+"*.csv")
