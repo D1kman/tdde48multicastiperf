@@ -25,7 +25,7 @@ def generate_graph(datas):
         for i in x:
             if i > len(datas[j]):
                 break
-            y.append(datas[j][i].loss)
+            y.append(datas[j][i].bytes)
         plt.plot(x, y, marker='o')
             
     # plotting the points 
@@ -36,7 +36,7 @@ def generate_graph(datas):
     # naming the y axis
     plt.ylabel('y - axis')
     
-    plt.axis([0, 40, 0, 100])
+    # plt.axis([0, 40, 0, 100])
     # giving a title to my graph
     plt.title('My first graph!')
     

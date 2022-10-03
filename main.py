@@ -1,11 +1,8 @@
 from reader import *
 from generate import *
 
-walla = read("./data/m_cck1_close_0.5.csv")
-balla = read("./data/m_cck1_close_1.csv")
-dalla = read("./data/m_cck1_close_3.csv")
 x=[]
-x.append(walla)
-x.append(balla)
-x.append
+files = find("m_cck5.5_close")
+for file in files:
+    x.append(read(file))
 generate_graph(x)
