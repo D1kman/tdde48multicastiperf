@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 
 
-def generate_graph_loss(datas):
+def generate_graph_loss(datas,title):
     
     x = range(0, 30)
     for j in range(0, len(datas)):
@@ -10,8 +10,8 @@ def generate_graph_loss(datas):
         for i in x:
             if i > len(datas[j].data):
                 break
-            y.append(datas[j].data[i].bytes)
-        plt.plot(x, y, marker='o')
+            y.append(datas[j].data[i].loss)
+        plt.plot(x, y, marker='o', label=datas[j].name, color=color(datas[j].bandwidth))
             
     # plotting the points 
     
@@ -23,12 +23,20 @@ def generate_graph_loss(datas):
     
     # plt.axis([0, 40, 0, 100])
     # giving a title to my graph
-    plt.title('Loss')
+    plt.title(title)
+    ax = plt.subplot(111)
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0 + box.height * 0.1,
+                 box.width, box.height * 0.9])
+
+# Put a legend below current axis
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=4)
+    
     
     # function to show the plot
     plt.show()
 
-def generate_graph_throughput(datas):
+def generate_graph_throughput(datas,title):
     
     x = range(0, 30)
     for j in range(0, len(datas)):
@@ -49,14 +57,14 @@ def generate_graph_throughput(datas):
     
     # plt.axis([0, 40, 0, 100])
     # giving a title to my graph
-    plt.title('Throughput')
+    plt.title(title)
     ax = plt.subplot(111)
     box = ax.get_position()
     ax.set_position([box.x0, box.y0 + box.height * 0.1,
                  box.width, box.height * 0.9])
 
 # Put a legend below current axis
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=5)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=4)
     
     
     # function to show the plot
