@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 
 
-def generate_graph_loss(datas,title):
+def generate_graph_loss(datas,title,file):
     
     x = range(0, 30)
     for j in range(0, len(datas)):
@@ -26,17 +26,20 @@ def generate_graph_loss(datas,title):
     plt.title(title)
     ax = plt.subplot(111)
     box = ax.get_position()
-    ax.set_position([box.x0, box.y0 + box.height * 0.1,
-                 box.width, box.height * 0.9])
+    ax.set_position([box.x0, box.y0 + box.height * 0.2,
+                 box.width, box.height * 0.8])
 
 # Put a legend below current axis
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=4)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=3)
     
     
     # function to show the plot
-    plt.show()
+    # plt.show()
+    plt.savefig("./figs/"+file+"_loss.png")
 
-def generate_graph_throughput(datas,title):
+    plt.close()
+
+def generate_graph_throughput(datas,title,file):
     
     x = range(0, 30)
     for j in range(0, len(datas)):
@@ -60,15 +63,17 @@ def generate_graph_throughput(datas,title):
     plt.title(title)
     ax = plt.subplot(111)
     box = ax.get_position()
-    ax.set_position([box.x0, box.y0 + box.height * 0.1,
-                 box.width, box.height * 0.9])
+    ax.set_position([box.x0, box.y0 + box.height * 0.2,
+                 box.width, box.height * 0.8])
 
 # Put a legend below current axis
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), fancybox=True, shadow=True, ncol=4)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), fancybox=True, shadow=True, ncol=3)
     
     
     # function to show the plot
-    plt.show()
+    # plt.show()
+    plt.savefig("./figs/"+file+"_throughput.png")
+    plt.close()
 
 def color(bandwidth):
     if(bandwidth==0.5):
